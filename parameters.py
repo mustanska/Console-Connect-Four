@@ -1,11 +1,18 @@
-from functions import is_unique_value
+from validation_functions import is_unique_value, is_valid_input
 
 ROWS = 6    # the field rows
 COLUMNS = 7     # the field columns
 
 field = [[0] * COLUMNS for row in range(ROWS)]
 
-players = int(input("How many people will you play?"))
+while True:
+    players = input("How many people will you play?")
+    if is_valid_input(players):
+        players = int(players)
+        break
+
+    print("The input is not valid. Try again...")
+
 
 # Create the dictionary with information about name of player and its sign
 players_signs = {}
