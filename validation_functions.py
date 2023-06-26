@@ -1,3 +1,10 @@
+# A function that checks valid input
+def is_valid_input(current_input):
+    if current_input.isdigit():
+        return True
+    return False
+
+
 # A function that checks for a unique player name and sign
 def is_valid_column(current_column, current_list):
     for row in range(len(current_list)):
@@ -28,19 +35,3 @@ def is_empty_spaces(field):
             if is_empty_spaces_in_the_column(field, col):
                 return True
     return False
-
-
-# A function to position the player's move
-def player_move(field, sign, column):
-    row = len(field) - 1
-
-    while row >= 0:
-        if field[row][column] == 0:
-            field[row][column] = sign
-            break
-        else:
-            row -= 1
-
-    return field
-
-# A function that checks for the winner
