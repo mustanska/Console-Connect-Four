@@ -1,8 +1,8 @@
-# A function to position the player's move
 from parameters import players_signs, COLUMNS
-from validation_functions import is_empty_spaces,is_valid_input, is_valid_column, is_empty_spaces_in_the_column
+from validation_functions import is_empty_spaces, is_valid_input, is_valid_column, is_empty_spaces_in_the_column
 
 
+# A function to position the player's move
 def player_move(field, sign, column):
     row = len(field) - 1
 
@@ -17,11 +17,13 @@ def player_move(field, sign, column):
 
 
 # A function that checks for the winner
+def winner_checking(field):
+    pass
 
 
-#A function for start the game
+# A function for start the game
 def start_game(field):
-    while is_empty_spaces(field):
+    while is_empty_spaces(field) and not winner_checking(field):
 
         for name, sign in players_signs.items():
 
@@ -43,5 +45,10 @@ def start_game(field):
 
             [print(*row) for row in field]
 
+            if winner_checking(field):
+                print(f"The winner is {name}. Congratulation!")
+                break
+
             if not is_empty_spaces(field):
+                print(f"There is no more empty spaces. The game is over!")
                 break
