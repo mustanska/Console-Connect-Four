@@ -124,6 +124,7 @@ def check_secondary_diagonal(field, row, column, sign):
         if 0 <= start_row + 1 < ROWS and 0 <= start_col - 1 < COLUMNS and count < 4:
             if field[start_row + 1][start_col - 1] != sign:
                 count = 0
+                indices = []
 
         if count == 4:
             for r, c in indices:
