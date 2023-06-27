@@ -56,6 +56,7 @@ def check_row(field, row, sign):
 # A function that checks if winner is at the given column
 def check_column(field, column, sign):
     count = 0
+    indices = []
 
     for row in range(ROWS):
         if field[row][column] == sign:
@@ -66,6 +67,8 @@ def check_column(field, column, sign):
                 count = 0
 
         if count == 4:
+            for r, c in indices:
+                field[r][c] = Fore.GREEN + sign + Fore.BLACK
             return True
 
     return False
@@ -74,6 +77,7 @@ def check_column(field, column, sign):
 # A function that checks if winner is at the primary diagonal
 def check_primary_diagonal(field, row, column, sign):
     count = 0
+    indices = []
 
     step = min(row, column)
     start_row = row - step
@@ -88,6 +92,8 @@ def check_primary_diagonal(field, row, column, sign):
                 count = 0
 
         if count == 4:
+            for r, c in indices:
+                field[r][c] = Fore.GREEN + sign + Fore.BLACK
             return True
 
         start_row += 1
@@ -99,6 +105,7 @@ def check_primary_diagonal(field, row, column, sign):
 # A function that checks if winner is at the secondary diagonal
 def check_secondary_diagonal(field, row, column, sign):
     count = 0
+    indices = []
 
     step = min(row, COLUMNS - 1 - column)
     start_row = row - step
@@ -113,6 +120,8 @@ def check_secondary_diagonal(field, row, column, sign):
                 count = 0
 
         if count == 4:
+            for r, c in indices:
+                field[r][c] = Fore.GREEN + sign + Fore.BLACK
             return True
 
         start_row += 1
@@ -130,7 +139,7 @@ def start_game(field):
         for name, sign in players_signs.items():
 
             while True:
-                chosen_column = input(Fore.BLACK + f"{name}, please choose the column from 1 to {COLUMNS}")
+                chosen_column = input(Fore.BLACK + f"{name}, please choose the column from 1 to {COLUMNS}: ")
                 if is_valid_input(chosen_column):
                     chosen_column = int(chosen_column) - 1
                     break
