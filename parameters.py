@@ -7,7 +7,7 @@ COLUMNS = 7     # the field columns
 empty_field = [[0] * COLUMNS for row in range(ROWS)]
 
 while True:
-    players = input(Fore.BLACK + "How many people will you play?")
+    players = input(Fore.BLACK + "How many people will you play?: ")
     if is_valid_input(players):
         players = int(players)
         break
