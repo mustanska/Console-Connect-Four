@@ -1,3 +1,4 @@
+from colorama import Fore
 from parameters import players_signs, ROWS, COLUMNS
 from validation_functions import is_empty_spaces, is_valid_input, is_valid_column, is_empty_spaces_in_the_column
 
@@ -33,16 +34,20 @@ def winner_checking(field, current_row, current_col, current_sign):
 # A function that checks if winner is at the given row
 def check_row(field, row, sign):
     count = 0
+    indices = []
 
     for column in range(COLUMNS):
         if field[row][column] == sign:
             count += 1
+            indices.append([row, column])
 
         if 0 <= column + 1 < COLUMNS and count < 4:
             if field[row][column + 1] != sign:
                 count = 0
 
         if count == 4:
+            for r, c in indices:
+                field[r][c] = Fore.GREEN + sign + Fore.BLACK
             return True
 
     return False
@@ -125,14 +130,14 @@ def start_game(field):
         for name, sign in players_signs.items():
 
             while True:
-                chosen_column = input(f"{name}, please choose the column from 1 to {COLUMNS}")
+                chosen_column = input(Fore.BLACK + f"{name}, please choose the column from 1 to {COLUMNS}")
                 if is_valid_input(chosen_column):
                     chosen_column = int(chosen_column) - 1
                     break
-                print("The input is not valid. Try again...")
+                print(Fore.RED + "The input is not valid. Try again...")
 
             if not is_valid_column(chosen_column, field):
-                print(f"{name}, you miss your turn. The column is not valid.")
+                print(Fore.RED + f"{name}, you miss your turn. The column is not valid.")
                 continue
 
             if is_empty_spaces_in_the_column(field, chosen_column):
@@ -142,14 +147,14 @@ def start_game(field):
                 is_winner = winner_checking(field, row, col, sign)
 
             else:
-                print(f"{name}, you miss your turn. The column is full.")
+                print(Fore.RED + f"{name}, you miss your turn. The column is full.")
 
             [print(*row) for row in field]
 
             if is_winner:
-                print(f"The winner is {name}. Congratulation!")
+                print(Fore.GREEN + f"The winner is {name}. Congratulation!")
                 break
 
             if not is_empty_spaces(field):
-                print(f"There is no more empty spaces. The game is over!")
+                print(Fore.BLUE + f"There is no more empty spaces. The game is over!")
                 break
