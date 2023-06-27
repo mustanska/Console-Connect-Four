@@ -44,6 +44,7 @@ def check_row(field, row, sign):
         if 0 <= column + 1 < COLUMNS and count < 4:
             if field[row][column + 1] != sign:
                 count = 0
+                indices = []
 
         if count == 4:
             for r, c in indices:
@@ -60,11 +61,13 @@ def check_column(field, column, sign):
 
     for row in range(ROWS):
         if field[row][column] == sign:
+            indices.append([row, column])
             count += 1
 
         if 0 <= row + 1 < ROWS and count < 4:
             if field[row + 1][column] != sign:
                 count = 0
+                indices = []
 
         if count == 4:
             for r, c in indices:
@@ -85,11 +88,13 @@ def check_primary_diagonal(field, row, column, sign):
 
     while 0 <= start_row < ROWS and 0 <= start_col < COLUMNS:
         if field[start_row][start_col] == sign:
+            indices.append([start_row, start_col])
             count += 1
 
         if 0 <= start_row + 1 < ROWS and 0 <= start_col + 1 < COLUMNS and count < 4:
             if field[start_row + 1][start_col + 1] != sign:
                 count = 0
+                indices = []
 
         if count == 4:
             for r, c in indices:
@@ -113,6 +118,7 @@ def check_secondary_diagonal(field, row, column, sign):
 
     while 0 <= start_row < ROWS and 0 <= start_col < COLUMNS:
         if field[start_row][start_col] == sign:
+            indices.append([start_row, start_col])
             count += 1
 
         if 0 <= start_row + 1 < ROWS and 0 <= start_col - 1 < COLUMNS and count < 4:
