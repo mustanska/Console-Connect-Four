@@ -6,10 +6,11 @@ If you want to play with friends something fun, this game is suitable. The playe
 You win the game when you have four consecutive positions with your sign in one of directions - 4 in column, 4 in row or 4 in some of diagonals in the field.
 See below:
 
-![row](https://github.com/mustanska/Console-Connect-Four/assets/122823838/ef7cf295-fb43-479f-b531-89f379c84fe9)
-![column](https://github.com/mustanska/Console-Connect-Four/assets/122823838/5f43ac08-8109-4bb7-ae3e-202860c98e4a)
-![primary_diagonal](https://github.com/mustanska/Console-Connect-Four/assets/122823838/8f95d3b4-dc23-4ce7-bd66-3b993a5b7bb3)
-![secondary_diagonal](https://github.com/mustanska/Console-Connect-Four/assets/122823838/443bd356-7bff-45d4-934e-e38dca23fdc4)
+![row](https://github.com/mustanska/Console-Connect-Four/assets/122823838/f6964e9e-88ac-4478-bc53-53872c2ef832)
+![column](https://github.com/mustanska/Console-Connect-Four/assets/122823838/f9d81116-292d-4a12-8330-9f4d2da56176)
+![primary_diagonal](https://github.com/mustanska/Console-Connect-Four/assets/122823838/857922e2-312d-491a-be39-567a1e92c9b7)
+![secondary_diagonal](https://github.com/mustanska/Console-Connect-Four/assets/122823838/e900496f-692d-4881-b19a-3fae683ca724)
+
 
 If no one win the game and the field has no empty spaces, the game is over.
 ![no_empty](https://github.com/mustanska/Console-Connect-Four/assets/122823838/fe58d8a5-b142-48dd-8d32-307875fc4356)
