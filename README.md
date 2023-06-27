@@ -2,6 +2,7 @@
 This console game was created during my education at Software University. It is a simple version of "Connect Four" game.
 
 If you want to play with friends something fun, this game is suitable. The players can be more than 2 but not be more than 5 and everyone can choose what name will have and with what sign will play.
+
 Play the game directly from here: <a href='https://replit.com/@mustanska/ConsoleConnectFour'> Connect Four </a> and have fun.
 
 You win the game when you have four consecutive positions with your sign in one of directions - 4 in column, 4 in row or 4 in some of diagonals in the field.
