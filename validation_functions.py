@@ -1,8 +1,6 @@
 # A function that checks valid input
 def is_valid_input(current_input):
-    if current_input.isdigit():
-        return True
-    return False
+    return True if current_input.isdigit() else False
 
 
 # A function that checks for a unique player name and sign
@@ -15,9 +13,7 @@ def is_valid_column(current_column, current_list):
 
 # A function that checks for a unique player name and sign
 def is_unique_value(current_value, current_list):
-    if current_value not in current_list:
-        return True
-    return False
+    return True if current_value not in current_list else False
 
 
 # A function that checks for empty space in column
