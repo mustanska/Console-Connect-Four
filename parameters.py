@@ -27,7 +27,7 @@ while number <= players:
     sign = input("Choose sign: ")
 
     if is_unique_value(name, players_signs.keys()) and is_unique_value(sign, players_signs.values()):
-        players_signs[name] = COLORS[number - 1] + sign + Fore.BLACK
+        players_signs[name] = COLORS[number - 1] + sign + Fore.RESET
         number += 1
     else:
         print(Fore.RED + "The name or the sign is already taken. Please write them again.")
