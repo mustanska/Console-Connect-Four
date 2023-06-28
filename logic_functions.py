@@ -1,5 +1,5 @@
 from colorama import Fore, Back
-from parameters import players_signs, ROWS, COLUMNS
+from variables import players_signs, ROWS, COLUMNS
 from validation_functions import is_empty_spaces, is_valid_input, is_valid_column, is_empty_spaces_in_the_column
 
 
