@@ -26,7 +26,11 @@ while number <= players:
     name = input(Fore.BLACK + f"Player {number} please write your name: ")
     sign = input("Choose sign: ")
 
-    if is_unique_value(name, players_signs.keys()) and is_unique_value(sign, players_signs.values()):
+    # Checks if name and sign is unique
+    # When checks the sign, the other players signs are player_sign[5:6] because we want only unique signs without color
+    if is_unique_value(name, players_signs.keys()) and \
+            is_unique_value(sign, [player_sign[5:6] for player_sign in players_signs.values()]):
+
         players_signs[name] = COLORS[number - 1] + sign + Fore.BLACK
         number += 1
     else:
