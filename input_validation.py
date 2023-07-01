@@ -1,12 +1,12 @@
 from colorama import Fore
-from validation_functions import is_valid_input, is_unique_value
+from validation_functions import is_valid_digit, is_valid_input, is_unique_value
 
 
 def set_players_count():
     while True:
         players = input(Fore.BLACK + "How many people will you play? Choose from 2 to 5: ")
 
-        if is_valid_input(players):
+        if is_valid_input(players) and is_valid_digit(players):
             players = int(players)
             if 1 < players <= 5:
                 return players
@@ -22,6 +22,10 @@ def set_players_data(players):
     while number <= players:
         name = input(Fore.BLACK + f"Player {number} please write your name: ")
         sign = input("Choose sign: ")
+
+        if not (is_valid_input(name) and is_valid_input(sign)):
+            print(Fore.RED + "The inputs are not valid. Try again...")
+            continue
 
         # Checks if name and sign is unique
         # When checks the sign, the other players signs are player_sign[5:6]

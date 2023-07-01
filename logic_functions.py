@@ -1,6 +1,7 @@
 from colorama import Fore, Back
 from variables import players, ROWS, COLUMNS
-from validation_functions import is_empty_spaces, is_valid_input, is_valid_column, is_empty_spaces_in_the_column
+from validation_functions import is_empty_spaces,is_empty_spaces_in_the_column, \
+    is_valid_digit, is_valid_column, is_valid_input
 
 
 # A function to position the player's move
@@ -108,7 +109,7 @@ def start_game(field):
 
             while True:
                 chosen_column = input(Fore.BLACK + f"{name}, please choose the column from 1 to {COLUMNS}: ")
-                if is_valid_input(chosen_column):
+                if is_valid_digit(chosen_column) and is_valid_input(chosen_column):
                     chosen_column = int(chosen_column) - 1
                     break
                 print(Fore.RED + "The input is not valid. Try again...")

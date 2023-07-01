@@ -1,5 +1,12 @@
 # A function that checks valid input
 def is_valid_input(current_input):
+    if current_input and not current_input == " ":
+        return True
+    return False
+
+
+# A function that checks valid input digit
+def is_valid_digit(current_input):
     return current_input.isdigit()
 
 
