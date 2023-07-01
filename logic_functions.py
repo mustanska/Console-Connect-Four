@@ -1,5 +1,5 @@
 from colorama import Fore, Back
-from variables import players_signs, ROWS, COLUMNS
+from variables import players, ROWS, COLUMNS
 from validation_functions import is_empty_spaces, is_valid_input, is_valid_column, is_empty_spaces_in_the_column
 
 
@@ -104,7 +104,7 @@ def start_game(field):
 
     while is_empty_spaces(field) and not is_winner:
 
-        for name, sign in players_signs.items():
+        for name, sign in players.items():
 
             while True:
                 chosen_column = input(Fore.BLACK + f"{name}, please choose the column from 1 to {COLUMNS}: ")
